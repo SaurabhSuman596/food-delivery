@@ -3,9 +3,9 @@ import Product from '../../../models/Product';
 
 export default async function handler(req, res) {
   const { method, cookies } = req;
-  const token = cookies.token;
+  const token = await cookies.token;
 
-  dbConnect();
+  await dbConnect();
 
   if (method === 'GET') {
     try {
