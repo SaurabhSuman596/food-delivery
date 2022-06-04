@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleClick = async () => {
     try {
-      await axios.post('https://maharaja-food2.vercel.app/api/login', {
+      await axios.post(`${process.env.AXIOS_URL}/api/login`, {
         username,
         password,
       });

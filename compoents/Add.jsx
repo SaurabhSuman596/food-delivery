@@ -45,10 +45,7 @@ const Add = ({ setClose }) => {
         img: url,
       };
 
-      await axios.post(
-        'https://maharaja-food2.vercel.app/api/product',
-        newProduct
-      );
+      await axios.post(`${process.env.AXIOS_URL}/api/product`, newProduct);
       setClose(true);
     } catch (err) {
       console.log(err);

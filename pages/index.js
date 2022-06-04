@@ -25,7 +25,7 @@ export default function Home({ productList }) {
 }
 
 export const getServerSideProps = async (ctx) => {
-  const res = await axios.get('https://maharaja-food2.vercel.app/api/product');
+  const res = await axios.get(`${process.env.AXIOS_URL}/api/product`);
   return {
     props: {
       productList: res.data,

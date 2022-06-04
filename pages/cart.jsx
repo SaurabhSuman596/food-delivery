@@ -20,10 +20,7 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post(
-        'https://maharaja-food2.vercel.app/api/orders',
-        data
-      );
+      const res = await axios.post(`${process.env.AXIOS_URL}/api/orders`, data);
       if (res.status === 201) {
         dispatch(reset());
         router.push(`/orders/${res.data._id}`);
