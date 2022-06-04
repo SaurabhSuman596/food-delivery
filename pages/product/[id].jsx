@@ -94,7 +94,9 @@ const Product = ({ product }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(`http://localhost:3000/api/product/${params.id}`);
+  const res = await axios.get(
+    `https://maharaja-food2.vercel.app/api/product/${params.id}`
+  );
 
   return {
     props: {

@@ -15,7 +15,9 @@ const Index = ({ orders, products }) => {
   const handleDelete = async (id) => {
     console.log(id);
     try {
-      const res = await axios.delete('http://localhost:3000/api/product/' + id);
+      const res = await axios.delete(
+        'https://maharaja-food2.vercel.app/api/product/' + id
+      );
       setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
     } catch (err) {
       console.log(err);
