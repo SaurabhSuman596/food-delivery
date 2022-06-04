@@ -4,12 +4,14 @@ import { useState } from 'react';
 import axios from 'axios';
 import { addProduct } from '../../redux/cartSlice';
 import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 
 const Product = ({ product }) => {
   const [size, setSize] = useState(0);
   const [price, setPrice] = useState(product.prices[0]);
   const [quantity, setQuantity] = useState(1);
   const [extras, setExtras] = useState([]);
+  const router = useRouter();
 
   const dispatch = useDispatch();
   const changePrice = (number) => {
@@ -34,6 +36,7 @@ const Product = ({ product }) => {
 
   const handleClick = () => {
     dispatch(addProduct({ ...product, extras, price, quantity }));
+    router.push('/cart');
   };
 
   return (
